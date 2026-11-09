@@ -98,7 +98,7 @@ function Hero() {
           />
         </div>
 
-        <div className="mt-14 grid items-end gap-10 md:grid-cols-12">
+        <div className="mt-10 grid items-end gap-10 md:grid-cols-12">
           <motion.p
             className="max-w-md text-lg leading-relaxed text-paper/75 md:col-span-5"
             initial={{ opacity: 0, y: 20 }}
@@ -206,13 +206,16 @@ function Principles() {
     <section className="border-y border-line bg-bone">
       <div className="container-x grid md:grid-cols-12">
         <div className="relative hidden md:col-span-5 md:block">
-          <MaskImage
-            src={desk}
-            alt="Policy manuals, an organisational chart and registration papers on a desk"
-            width={1600}
-            height={1104}
-            className="sticky top-0 h-screen"
-          />
+          <div className="sticky top-0 h-screen overflow-hidden">
+            <img
+              src={desk}
+              alt="Policy manuals, an organisational chart and registration papers on a desk"
+              width={1600}
+              height={1104}
+              loading="lazy"
+              className="h-full w-full object-cover"
+            />
+          </div>
         </div>
         <div className="md:col-span-7 md:pl-16">
           {principles.map((p, i) => (
