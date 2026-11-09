@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Site content (services, contact details) lives in src/lib/content.ts; pages read from it so copy stays consistent across Home, Services, Footer and Contact.
+- Shared motion primitives live in src/components/site/motion.tsx; clip-path reveals must clip an inner layer, never the observed element (fully clipped elements never trigger in-view).
