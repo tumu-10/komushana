@@ -44,7 +44,7 @@ export function Footer() {
                 {services.map((s) => (
                   <li key={s.slug}>
                     <Link to="/services" hash={s.slug} className="link-underline">
-                      {s.title.split(" & ")[0].split(" and ")[0]}
+                      {s.title.split(" & ")[0]?.split(" and ")[0]}
                     </Link>
                   </li>
                 ))}
