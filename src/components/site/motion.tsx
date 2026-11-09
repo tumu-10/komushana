@@ -92,26 +92,35 @@ export function MaskImage({
   eager?: boolean;
 }) {
   const reduce = useReducedMotion();
+  // The observed wrapper keeps its full box; only the inner layer is clipped,
+  // otherwise a fully-clipped element never registers as "in view".
   return (
     <motion.div
       className={`overflow-hidden ${className ?? ""}`}
-      initial={{ clipPath: reduce ? "inset(0 0 0 0)" : "inset(100% 0 0 0)" }}
-      whileInView={{ clipPath: "inset(0% 0 0 0)" }}
-      viewport={{ once: true, margin: "-10%" }}
-      transition={{ duration: 1.3, ease: EASE }}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.15 }}
     >
-      <motion.img
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        loading={eager ? "eager" : "lazy"}
-        className={`h-full w-full object-cover ${imgClassName ?? ""}`}
-        initial={{ scale: reduce ? 1 : 1.25 }}
-        whileInView={{ scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.8, ease: EASE }}
-      />
+      <motion.div
+        className="h-full w-full"
+        variants={{
+          hidden: { clipPath: reduce ? "inset(0% 0 0 0)" : "inset(100% 0 0 0)" },
+          show: { clipPath: "inset(0% 0 0 0)", transition: { duration: 1.3, ease: EASE } },
+        }}
+      >
+        <motion.img
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          loading={eager ? "eager" : "lazy"}
+          className={`h-full w-full object-cover ${imgClassName ?? ""}`}
+          variants={{
+            hidden: { scale: reduce ? 1 : 1.25 },
+            show: { scale: 1, transition: { duration: 1.8, ease: EASE } },
+          }}
+        />
+      </motion.div>
     </motion.div>
   );
 }
