@@ -302,7 +302,7 @@ function ServicesIndex() {
                   transition={{ duration: 0.6, ease: EASE }}
                   className="absolute inset-x-6 bottom-6 text-lg leading-relaxed text-paper/90"
                 >
-                  {services[active].short}
+                  {services[active]?.short}
                 </motion.p>
               </div>
             </div>

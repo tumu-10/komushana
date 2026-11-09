@@ -41,7 +41,7 @@ export function FoundationStack({ className }: { className?: string }) {
       <motion.svg
         viewBox="-20 40 300 290"
         className="h-full w-full overflow-visible"
-        animate={reduce ? undefined : { y: [0, -8, 0] }}
+        animate={reduce ? { y: 0 } : { y: [0, -8, 0] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
         role="img"
         aria-label="Five stacked foundation layers representing Komushana's services"

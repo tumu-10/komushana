@@ -77,7 +77,7 @@ function Services() {
                       {s.n}
                     </span>
                     <MaskImage
-                      src={imgs[i]}
+                      src={imgs[i] ?? desk}
                       alt=""
                       width={1600}
                       height={1104}
