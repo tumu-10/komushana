@@ -136,9 +136,9 @@ export function Header() {
         {open && (
           <motion.div
             className="surface-ink grain fixed inset-0 z-40 flex flex-col justify-between overflow-y-auto px-6 pb-10 pt-28 sm:px-10 lg:hidden"
-            initial={{ clipPath: "circle(0% at calc(100% - 3rem) 2.5rem)" }}
-            animate={{ clipPath: "circle(150% at calc(100% - 3rem) 2.5rem)" }}
-            exit={{ clipPath: "circle(0% at calc(100% - 3rem) 2.5rem)" }}
+            initial={{ clipPath: "circle(0% at 92% 5%)" }}
+            animate={{ clipPath: "circle(150% at 92% 5%)" }}
+            exit={{ clipPath: "circle(0% at 92% 5%)" }}
             transition={{ duration: 0.75, ease: [0.76, 0, 0.24, 1] }}
             data-lenis-prevent
           >

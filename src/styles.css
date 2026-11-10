@@ -49,6 +49,8 @@
   --color-ochre: var(--ochre);
   --color-line: var(--line);
   --color-line-dark: var(--line-dark);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-foreground: var(--whatsapp-foreground);
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -65,6 +67,9 @@
   --ochre: oklch(0.79 0.13 72);
   --line: oklch(0.17 0.045 305 / 14%);
   --line-dark: oklch(0.968 0.012 85 / 14%);
+  --whatsapp: oklch(0.72 0.19 150);
+  --whatsapp-foreground: oklch(0.99 0 0);
+  --shadow-whatsapp: 0 14px 40px -12px color-mix(in oklab, var(--whatsapp) 70%, transparent);
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -96,7 +101,24 @@
   html {
     scroll-behavior: smooth;
   }
+  html.lenis {
+    scroll-behavior: auto;
+  }
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-stopped {
+    overflow: clip;
+  }
+  .lenis [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
   body {
+    overflow-x: clip;
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
@@ -200,7 +222,67 @@
   animation: marquee 40s linear infinite;
 }
 
+/* WhatsApp float: slow soft halo */
+@keyframes wa-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.45;
+  }
+  80%,
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+}
+.wa-ping {
+  animation: wa-ping 2.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+  z-index: -1;
+}
+.wa-float:hover .wa-ping {
+  animation-play-state: paused;
+  opacity: 0;
+}
+
+/* Route changes: old page drifts up and dims, new page wipes up from below. */
+::view-transition-old(root) {
+  animation: vt-out 0.55s cubic-bezier(0.7, 0, 0.84, 0) both;
+}
+::view-transition-new(root) {
+  animation: vt-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.site-header {
+  view-transition-name: site-header;
+}
+.wa-float {
+  view-transition-name: wa-float;
+}
+::view-transition-group(site-header),
+::view-transition-group(wa-float) {
+  animation: none;
+}
+@keyframes vt-out {
+  to {
+    opacity: 0.2;
+    transform: translateY(-6vh) scale(0.97);
+    filter: blur(4px);
+  }
+}
+@keyframes vt-in {
+  from {
+    clip-path: inset(100% 0 0 0);
+    transform: translateY(8vh);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
   *,
   *::before,
   *::after {
