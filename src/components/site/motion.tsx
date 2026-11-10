@@ -1,7 +1,19 @@
-import { motion, useReducedMotion, type Variants } from "motion/react";
-import type { ReactNode } from "react";
+import { motion, useInView, useReducedMotion, type Variants } from "motion/react";
+import { useRef, type ReactNode } from "react";
+import { useIntroDone } from "./intro";
 
 export const EASE = [0.16, 1, 0.3, 1] as const;
+
+/**
+ * Plays once the element is in view AND the opening preloader has lifted,
+ * so entrance motion is never wasted behind the curtain.
+ */
+function usePlay<T extends Element>(immediate: boolean, margin: string, amount?: number) {
+  const ref = useRef<T>(null);
+  const ready = useIntroDone();
+  const inView = useInView(ref, { once: true, margin: margin as never, amount });
+  return { ref, play: ready && (immediate || inView) };
+}
 
 /** Word-by-word masked rise. Used for every display headline. */
 export function SplitHeading({
@@ -18,6 +30,7 @@ export function SplitHeading({
   immediate?: boolean;
 }) {
   const reduce = useReducedMotion();
+  const { ref, play } = usePlay<HTMLHeadingElement>(immediate, "-10% 0px");
   const Tag = motion[as];
   const words = text.split(" ");
   const container: Variants = {
@@ -30,10 +43,11 @@ export function SplitHeading({
   };
   return (
     <Tag
+      ref={ref}
       className={className}
       variants={container}
       initial="hidden"
-      {...(immediate ? { animate: "show" } : { whileInView: "show", viewport: { once: true, margin: "-10%" } })}
+      animate={play ? "show" : "hidden"}
       aria-label={text}
     >
       {words.map((w, i) => (
@@ -60,12 +74,13 @@ export function Reveal({
   y?: number;
 }) {
   const reduce = useReducedMotion();
+  const { ref, play } = usePlay<HTMLDivElement>(false, "-8% 0px");
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial={{ opacity: 0, y: reduce ? 0 : y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-8%" }}
+      animate={play ? { opacity: 1, y: 0 } : { opacity: 0, y: reduce ? 0 : y }}
       transition={{ duration: 0.9, delay, ease: EASE }}
     >
       {children}
@@ -94,12 +109,13 @@ export function MaskImage({
   const reduce = useReducedMotion();
   // The observed wrapper keeps its full box; only the inner layer is clipped,
   // otherwise a fully-clipped element never registers as "in view".
+  const { ref, play } = usePlay<HTMLDivElement>(false, "0px", 0.15);
   return (
     <motion.div
+      ref={ref}
       className={`overflow-hidden ${className ?? ""}`}
       initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.15 }}
+      animate={play ? "show" : "hidden"}
     >
       <motion.div
         className="h-full w-full"
