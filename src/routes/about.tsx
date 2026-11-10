@@ -1,8 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import handover from "@/assets/about-handover.jpg.asset.json";
-import limelight from "@/assets/limelight.png.asset.json";
-import dawinci from "@/assets/dawinci.png.asset.json";
+import handover from "@/assets/about-handover.jpg";
+import dawinci from "@/assets/dawinci.png";
 import hero from "@/assets/hero-kampala.jpg";
 import { MaskImage, Reveal, SplitHeading } from "@/components/site/motion";
 
@@ -98,7 +97,7 @@ function About() {
         <div className="container-x grid items-center gap-12 py-24 md:grid-cols-12 md:py-32">
           <div className="md:col-span-7">
             <MaskImage
-              src={handover.url}
+              src={handover}
               alt="Three colleagues presenting the DaWinçi HR Policy and Procedures Manual at its handover"
               width={1200}
               height={928}
@@ -148,16 +147,34 @@ function About() {
           </div>
           <ul className="grid grid-cols-2 border-l border-t border-line md:col-span-6 md:col-start-7">
             {[
-              { src: limelight.url, alt: "Limelight Chemicals and Equipment Limited logo" },
-              { src: dawinci.url, alt: "DaWinçi Architecture | Civil Engineering logo" },
-            ].map((l) => (
-              <li key={l.alt} className="flex aspect-[4/3] items-center justify-center border-b border-r border-line p-10">
-                <img
-                  src={l.src}
-                  alt={l.alt}
-                  loading="lazy"
-                  className="max-h-24 w-auto object-contain grayscale transition duration-500 hover:grayscale-0"
-                />
+              {
+                alt: "Limelight Chemicals and Equipment Limited",
+                content: (
+                  <span className="max-w-40 text-center font-display text-sm font-medium leading-tight tracking-wide text-foreground sm:text-base">
+                    LIMELIGHT
+                    <span className="mt-1 block font-sans text-[0.65rem] font-normal tracking-normal text-muted-foreground sm:text-xs">
+                      CHEMICALS &amp; EQUIPMENT LIMITED
+                    </span>
+                  </span>
+                ),
+              },
+              {
+                alt: "DaWinçi Architecture | Civil Engineering logo",
+                content: (
+                  <img
+                    src={dawinci}
+                    alt="DaWinçi Architecture | Civil Engineering logo"
+                    loading="lazy"
+                    className="max-h-24 max-w-full w-auto object-contain grayscale transition duration-500 hover:grayscale-0"
+                  />
+                ),
+              },
+            ].map((partner) => (
+              <li
+                key={partner.alt}
+                className="flex aspect-[4/3] min-w-0 items-center justify-center border-b border-r border-line p-4 sm:p-8 md:p-10"
+              >
+                {partner.content}
               </li>
             ))}
           </ul>
