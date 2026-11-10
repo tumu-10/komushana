@@ -1,10 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { ArrowUpRight, Plus } from "lucide-react";
-import desk from "@/assets/systems-desk.jpg";
-import workshop from "@/assets/workshop.jpg";
-import event from "@/assets/event.jpg";
 import { services } from "@/lib/content";
+import { serviceImages } from "@/lib/service-images";
 import { MaskImage, Reveal, SplitHeading } from "@/components/site/motion";
 
 export const Route = createFileRoute("/services")({
@@ -25,8 +23,6 @@ export const Route = createFileRoute("/services")({
   }),
   component: Services,
 });
-
-const imgs = [workshop, desk, desk, workshop, event];
 
 function Services() {
   return (
@@ -76,13 +72,18 @@ function Services() {
                     >
                       {s.n}
                     </span>
-                    <MaskImage
-                      src={imgs[i] ?? desk}
-                      alt=""
-                      width={1600}
-                      height={1104}
-                      className={`relative ${i % 3 === 0 ? "aspect-[4/5]" : "aspect-square"}`}
-                    />
+                    {(() => {
+                      const img = serviceImages[s.slug]!;
+                      return (
+                        <MaskImage
+                          src={img.src}
+                          alt={img.alt}
+                          width={img.width}
+                          height={img.height}
+                          className={`relative ${img.height > img.width ? "aspect-[4/5]" : "aspect-square"}`}
+                        />
+                      );
+                    })()}
                   </div>
                 </div>
                 <div className={`md:col-span-6 ${flip ? "md:order-1" : "md:col-start-7"} flex flex-col justify-center`}>

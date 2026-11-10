@@ -11,7 +11,7 @@ export const EASE = [0.16, 1, 0.3, 1] as const;
 function usePlay<T extends Element>(immediate: boolean, margin: string, amount?: number) {
   const ref = useRef<T>(null);
   const ready = useIntroDone();
-  const inView = useInView(ref, { once: true, margin: margin as never, amount });
+  const inView = useInView(ref, { once: true, margin: margin as never, amount: amount ?? "some" });
   return { ref, play: ready && (immediate || inView) };
 }
 
