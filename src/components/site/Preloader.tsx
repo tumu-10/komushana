@@ -32,7 +32,6 @@ export function Preloader() {
       ctl.stop();
       clearInterval(cycle);
       [t1, t2, t3].forEach(clearTimeout);
-      markIntroDone();
     };
   }, [count]);
 

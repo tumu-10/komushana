@@ -4,6 +4,10 @@ export const contact = {
   phone: "+256 752 973 828",
   phoneHref: "tel:+256752973828",
   hours: "Mon – Fri, 9:00 – 17:00 EAT",
+  whatsapp: "+256 752 973 828",
+  whatsappHref: `https://wa.me/256752973828?text=${encodeURIComponent(
+    "Hello Komushana Consultancy, I'd like to book a consultation.",
+  )}`,
 };
 
 export type Service = {
