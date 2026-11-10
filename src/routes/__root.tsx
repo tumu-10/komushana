@@ -15,6 +15,8 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { Preloader } from "@/components/site/Preloader";
+import { SmoothScroll } from "@/components/site/SmoothScroll";
+import { WhatsAppFloat } from "@/components/site/WhatsApp";
 import { motion } from "motion/react";
 import { useRouterState } from "@tanstack/react-router";
 
@@ -118,7 +120,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
   }),
   shellComponent: RootShell,
@@ -156,6 +158,8 @@ function RootComponent() {
         <Outlet />
       </PageTransition>
       <Footer />
+      <SmoothScroll />
+      <WhatsAppFloat />
     </QueryClientProvider>
   );
 }
