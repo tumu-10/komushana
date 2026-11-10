@@ -120,7 +120,7 @@ export function Header() {
                 <ArrowUpRight className="size-4 transition-transform duration-500 group-hover:rotate-45" />
               </Link>
               <button
-                className="inline-flex size-10 items-center justify-center border border-line-dark transition-colors hover:border-ochre lg:hidden"
+                className="inline-flex size-11 items-center justify-center border border-line-dark transition-colors hover:border-ochre lg:hidden"
                 onClick={() => setOpen((o) => !o)}
                 aria-label={open ? "Close menu" : "Open menu"}
                 aria-expanded={open}

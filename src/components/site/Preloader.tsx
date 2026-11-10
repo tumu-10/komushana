@@ -5,7 +5,7 @@ import { BrandMark } from "./Brand";
 import { markIntroDone } from "./intro";
 
 /**
- * "Orbit" preloader — the Komushana sphere is drawn into existence inside two
+ * "Orbit" preloader - the Komushana sphere is drawn into existence inside two
  * orbiting rings, the wordmark rises letter by letter, the three pillars cycle,
  * a counter runs to 100, then the curtain splits open. ~4.6s on every full load.
  */
@@ -161,7 +161,7 @@ export function Preloader() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, ease: EASE }}
               >
-                {String(pillar + 1).padStart(2, "0")} — {PILLARS[pillar]}
+                {String(pillar + 1).padStart(2, "0")} - {PILLARS[pillar]}
               </motion.span>
             </div>
           </div>

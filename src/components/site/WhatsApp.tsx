@@ -11,7 +11,7 @@ export function WhatsAppIcon({ className = "" }: { className?: string }) {
   );
 }
 
-/** Floating WhatsApp button — a round badge that unfurls into a labelled pill on hover/focus. */
+/** Floating WhatsApp button - a round badge that unfurls into a labelled pill on hover/focus. */
 export function WhatsAppFloat() {
   const ready = useIntroDone();
   return (

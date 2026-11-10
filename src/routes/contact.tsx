@@ -7,10 +7,10 @@ import { Reveal, SplitHeading } from "@/components/site/motion";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Book a consultation | Komushana Consultancy" },
+      { title: "Contact - Book a consultation | Komushana Consultancy" },
       {
         name: "description",
-        content: "Tell us where your organisation is today. Komushana Consultancy, Kampala — email, phone and consultation form.",
+        content: "Tell us where your organisation is today. Komushana Consultancy, Kampala - email, phone and consultation form.",
       },
       { property: "og:title", content: "Contact Komushana Consultancy" },
       { property: "og:description", content: "Let's build your organisation's foundations. Book a consultation." },
@@ -30,7 +30,7 @@ function Contact() {
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
-    const subject = `Consultation enquiry — ${f.get("service") || "General"}`;
+    const subject = `Consultation enquiry - ${f.get("service") || "General"}`;
     const body = [
       `Name: ${f.get("name")}`,
       `Organisation: ${f.get("organisation") || "-"}`,

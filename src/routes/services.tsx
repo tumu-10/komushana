@@ -8,13 +8,13 @@ import { MaskImage, Reveal, SplitHeading } from "@/components/site/motion";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Komushana Consultancy" },
+      { title: "Services - Komushana Consultancy" },
       {
         name: "description",
         content:
           "Organisational build, HR systems, NGO & CBO compliance and registration, SME operations, and corporate event management in Uganda.",
       },
-      { property: "og:title", content: "Services — Komushana Consultancy" },
+      { property: "og:title", content: "Services - Komushana Consultancy" },
       {
         property: "og:description",
         content: "Systems that let your organisation run without you in the room.",

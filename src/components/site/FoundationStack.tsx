@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { EASE } from "./motion";
 
 /**
- * Dimensional isometric "foundations" — five slabs (one per service) that
+ * Dimensional isometric "foundations" - five slabs (one per service) that
  * assemble from the ground up. The brand metaphor: structure, built layer by layer.
  */
 const LAYERS = ["Events", "Operations", "Compliance", "People", "Structure"];

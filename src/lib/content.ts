@@ -3,7 +3,7 @@ export const contact = {
   email: "shebanahurira@gmail.com",
   phone: "+256 752 973 828",
   phoneHref: "tel:+256752973828",
-  hours: "Mon – Fri, 9:00 – 17:00 EAT",
+  hours: "Mon - Fri, 9:00 - 17:00 EAT",
   whatsapp: "+256 752 973 828",
   whatsappHref: `https://wa.me/256752973828?text=${encodeURIComponent(
     "Hello Komushana Consultancy, I'd like to book a consultation.",
@@ -64,7 +64,7 @@ export const services: Service[] = [
     slug: "sme-operations",
     title: "SME & Startup Operations",
     short: "The internal systems growing businesses need to run consistently.",
-    body: "Setting up the internal systems growing businesses need to function consistently — from HR and finance procedures to asset management and documentation.",
+    body: "Setting up the internal systems growing businesses need to function consistently - from HR and finance procedures to asset management and documentation.",
     points: [
       "HR policies & performance frameworks",
       "Company property & asset management",
@@ -77,7 +77,7 @@ export const services: Service[] = [
     slug: "corporate-events",
     title: "Corporate Event Planning & Management",
     short: "End-to-end corporate events for NGOs and the private sector.",
-    body: "Professional planning and execution of corporate events for both NGOs and private sector organisations — handled end to end.",
+    body: "Professional planning and execution of corporate events for both NGOs and private sector organisations - handled end to end.",
     points: [
       "Full event planning & coordination",
       "On-the-day execution & management",

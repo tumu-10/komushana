@@ -13,16 +13,16 @@ import { FoundationStack } from "@/components/site/FoundationStack";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Komushana Consultancy — Building the foundations organisations need to grow" },
+      { title: "Komushana Consultancy - Building the foundations organisations need to grow" },
       {
         name: "description",
         content:
           "Kampala-based consultancy helping NGOs, CBOs, startups and SMEs move from informal, founder-dependent operations to structured, system-driven institutions.",
       },
-      { property: "og:title", content: "Komushana Consultancy — Building foundations to grow" },
+      { property: "og:title", content: "Komushana Consultancy - Building foundations to grow" },
       {
         property: "og:description",
-        content: "Organisational structure, HR systems, NGO compliance and SME operations — built, not just advised.",
+        content: "Organisational structure, HR systems, NGO compliance and SME operations - built, not just advised.",
       },
     ],
   }),
@@ -54,7 +54,7 @@ function Hero() {
   return (
     <section ref={ref} className="surface-ink grain relative min-h-[100svh] overflow-hidden">
       <div className="blueprint absolute inset-0 opacity-40" aria-hidden />
-      {/* Image panel — right, tall, offset */}
+      {/* Image panel - right, tall, offset */}
       <motion.div
         className="absolute right-0 top-0 h-full w-full md:w-[46%]"
         initial={{ clipPath: "inset(0 0 0 100%)" }}
@@ -146,7 +146,7 @@ function Manifesto() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.85", "end 0.4"] });
   const text =
-    "We do not just advise — we build the actual systems, frameworks, and governance structures that allow an organisation to function consistently and accountably.";
+    "We do not just advise - we build the actual systems, frameworks, and governance structures that allow an organisation to function consistently and accountably.";
   const words = text.split(" ");
   return (
     <section className="bg-paper py-32 md:py-48">
@@ -187,7 +187,7 @@ const principles = [
   {
     k: "Build",
     t: "We build, not just advise",
-    d: "We design and implement the actual systems, documents, and frameworks — not slide decks that sit on a shelf.",
+    d: "We design and implement the actual systems, documents, and frameworks - not slide decks that sit on a shelf.",
   },
   {
     k: "Independence",
@@ -197,7 +197,7 @@ const principles = [
   {
     k: "Context",
     t: "Tailored to Uganda",
-    d: "Frameworks built for your size, sector, and Ugandan legal requirements — from NGO Bureau to employment law.",
+    d: "Frameworks built for your size, sector, and Ugandan legal requirements - from NGO Bureau to employment law.",
   },
 ];
 

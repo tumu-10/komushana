@@ -6,7 +6,7 @@ import events from "@/assets/service-events.jpg";
 
 export type ServiceImage = { src: string; alt: string; width: number; height: number };
 
-/** One distinct photo per service — never reuse a photo across services. */
+/** One distinct photo per service - never reuse a photo across services. */
 export const serviceImages: Record<string, ServiceImage> = {
   "organisational-build": {
     src: orgBuild,

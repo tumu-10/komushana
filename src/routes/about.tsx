@@ -9,7 +9,7 @@ import { MaskImage, Reveal, SplitHeading } from "@/components/site/motion";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Komushana Consultancy, Kampala" },
+      { title: "About - Komushana Consultancy, Kampala" },
       {
         name: "description",
         content:
@@ -18,7 +18,7 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About Komushana Consultancy" },
       {
         property: "og:description",
-        content: "We don't just advise — we build the systems, frameworks and governance structures organisations run on.",
+        content: "We don't just advise - we build the systems, frameworks and governance structures organisations run on.",
       },
     ],
   }),
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/about")({
 });
 
 const values = [
-  { t: "We build, we don't just advise", d: "Our deliverables are working systems — policies, frameworks, structures — not recommendations alone." },
+  { t: "We build, we don't just advise", d: "Our deliverables are working systems - policies, frameworks, structures - not recommendations alone." },
   { t: "Accountability by design", d: "We embed reporting cultures and governance so organisations stay consistent and transparent." },
   { t: "Context first", d: "Everything is tailored to your size, sector, and Ugandan legal requirements." },
   { t: "Sustainable independence", d: "We design organisations that run with or without the founder in the room." },
@@ -71,7 +71,7 @@ function About() {
           <div className="space-y-10 md:col-span-8">
             <Reveal>
               <p className="display-md">
-                We work with NGOs, community-based organisations, and growing businesses — particularly
+                We work with NGOs, community-based organisations, and growing businesses - particularly
                 startups and SMEs.
               </p>
             </Reveal>
@@ -84,7 +84,7 @@ function About() {
               </Reveal>
               <Reveal delay={0.2}>
                 <p>
-                  That means we don't just advise — we build. We design and implement the actual
+                  That means we don't just advise - we build. We design and implement the actual
                   systems, documents, frameworks, and governance structures that allow an organisation to
                   function consistently and accountably, with or without the founder in the room.
                 </p>
@@ -109,7 +109,7 @@ function About() {
             <p className="eyebrow text-violet">In practice</p>
             <p className="display-md mt-6">The deliverable is the system itself.</p>
             <p className="mt-6 text-muted-foreground">
-              Handover of the DaWinçi HR Policy and Procedures Manual — a working framework, not a
+              Handover of the DaWinçi HR Policy and Procedures Manual - a working framework, not a
               recommendation.
             </p>
           </div>
